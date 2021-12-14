@@ -1,0 +1,14 @@
++ 카테고리 목록 조회
+엔드포인트 : categories/
+METHOD : GET
+
+- 응답 : 200 OK
+- Application/JSON
+{
+ "result" : [
+       {
+             "category_name" : "Database", (String)
+             "category_image" : "image.png" (String)
+       },
+  ]
+}

@@ -1,0 +1,19 @@
++ Auth (사용자 인증)
+엔드포인트 : /users/auth
+METHOD: GET
+BODY : Application/JSON
+ACCESS - STATUS : 200 OK
+FAIL- STATUS : 401 Unauthorized
+
+response
+--------------------------------------------------
+{
+       "user_id" : 30, (Number)
+       "email" : "testUser@test.com", (String)
+       "username" : "testUser",  (String)
+       "created_reg" : "2021-12-14 00:00;00Z", (Date 형식)
+       "profile_img" : "URL",  (String)
+}
+
+401 ( Unauthorized )
+ - 토큰이 없는데 요청한 경우

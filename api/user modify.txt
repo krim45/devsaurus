@@ -1,0 +1,35 @@
++ 유저 수정
+엔드포인트 : users/info
+METHOD:PUT
+BODY : Application/JSON
+ACCESS - STATUS : 204 No Content
+FAIL- STATUS : 400, 401, 403, 409
+{
+      ((필수))
+       "password": "password",[영어+숫자+기호]
+
+      ((선택))
+        "username": "testUser", [MAX 30]
+        "profile_img": "encoded_string",
+        "new_password": "changeme" [영어+숫자+기호]
+ }
+
+Fail Code
+400 ( Bad Request )
+ - payload에 잘못된 값이 들어온 경우
+{
+    "message" : "It has an empty value" 
+    (비어 있는 값이 있습니다.)
+    "message" : "value exceeded " 
+    (값이 초과했습니다.)
+}
+401 ( Unauthorized )
+ - 토큰이 없거나 유효기간이 만료된 경우
+403 ( Forbidden )
+ - 토큰 있지만, password가 다른 경우
+409 ( Conflict )
+- 사용자 이름이 중복된 경우
+{
+    "message" : "username already exists" 
+    (중복된 아이디가 있습니다.)
+}

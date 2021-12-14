@@ -1,0 +1,21 @@
++ 게시물 작성
+엔드포인트 : qna/questions/new
+METHOD:POST
+BODY : Application/JSON
+ACCESS - STATUS : 201 Created
+FAIL- STATUS : 400, 401
+-------------------------------------------------------
+BODY
+{
+       "user_id":  3,  (Number)
+       "category_id":  1,  (Number)
+       "title": "new title", (String)
+       "content":  "some content", (String)
+}
+-------------------------------------------------------
+
+400 Bad request
+- 값이 비거나 BODY에 잘못된 값이 들어간 경우 
+
+401 Unauthorized
+- 토큰이 없거나 유효기간이 만료된 경우

@@ -1,0 +1,33 @@
++ 유저 회원가입
+엔드포인트 : users/new
+METHOD:POST
+BODY : Application/JSON
+ACCESS - STATUS : 201 created
+FAIL- STATUS : 400, 409
+{
+       "email": "testUser@test.com", [MAX 89]
+       "username": "testUser", [MAX 30]
+       "password": "password",[영어+숫자+기호]
+}
+
+response : 201 Created
+--------------------------------------------------
+{
+       "user_id" : 30, (Number)
+       "email" : "testUser@test.com", (String)
+       "username" : "testUser",  (String)
+       "created_reg" : "2021-12-14 00:00;00Z", (Date 형식)
+       "profile_img" : "URL",  (String)
+}
+
+Fail Code
+400 ( Bad Request )
+ - body에 잘못된 값이 들어온 경우
+409 ( Conflict )
+ - 이미 사용자, 이메일이 존재하는 경우
+{ 
+       "message" : "username already exists"
+      (이미 사용자가 존재하는 경우)
+       "message" : "email already exists"
+      (이메일이 이미 존재하는 경우)
+}

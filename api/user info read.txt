@@ -1,0 +1,28 @@
++ 내 정보 조회
+엔드포인트 : users/info/
+METHOD : GET
+
+ACCESS - STATUS : 200 OK
+FAIL- STATUS : 401 Unauthorized
+
+- 응답 : 200 OK
+- Application/JSON
+{
+ "result" : [
+       {
+             "email" : "sample@sample.com", (String)
+             "username" : "kimchi1234", (String)
+              "questions" : 4 (Integer)
+              "answers" : 4 (Integer)
+              "profile_Image" : "image.png" (String)
+       },
+   ]
+}
+
+- 토큰이 없거나 만료된 경우
+- 응답 : 401 Unauthorized 
+- Application / JSON 
+{
+    "result" : "No access token" (토큰 없을 시)
+    "result" : "Access token expired" (토큰 만료 시)
+}

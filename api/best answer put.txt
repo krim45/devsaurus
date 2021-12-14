@@ -1,0 +1,23 @@
++ 체택 체크
+엔드포인트 : qna/answers/best-answer/:{answer-id}
+METHOD:PUT
+BODY : Application/JSON
+ACCESS - STATUS : 204 No Content
+FAIL- STATUS : 400, 401, 403, 404, 409
+-------------------------------------------------------
+
+400 Bad request
+  - 비정상적인 값이 들어온 경우 
+401 Unauthorized
+  - 토큰이 없는 경우
+ 403 Forbidden
+- 토큰이 있지만 권한 밖의 요청 
+404 Not found
+- 존재하지 않는 글의 수정을  요청한 경우
+409 Conflict
+- 이미 채택된 답이 있는데 다른 값을 채택 요청할 경우
+
+
+* 주의사항
+ - Auth API를 통해 자신이 작성한 글인지 확인 해야 합니다.
+ - 본인이 작성한 글이 아닌 경우 삭제 버튼이 disable 이어야 합니다.

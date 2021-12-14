@@ -1,0 +1,31 @@
++ 게시물 조회
+엔드포인트 : qna/:{board_id}
+METHOD : GET 
+
+- 응답 : 200 OK
+- Application/JSON
+{ "result" : [
+       "title" : "How do you use coronavirus API into action?",
+       "content" : "Board __ content"
+       "likes" : 3, (Integer)
+       "author" : "Nickname", (String)
+       "created_at": "2021-12-14 00:00;00Z" (Date 형식)
+       "answers" : 4, (Integer)
+       "like_count" : 4 (Integer)
+       "answer" : [
+              {
+                     "answer_id" : 1,
+                     "answer_title" : "reply Title",
+                     "answer_content" : "reply Content",
+                     "modify_date" : "2021-12-14 00:00;00Z" (Date 형식),
+                     "answer_author" : "reply author",
+                     "reply-like-count" : 4 (Integer)
+              },
+       ]
+]}
+
+- 응답 : 400 Bad request 
+- Application / JSON
+{
+    "result"  :  "error : database is invalid"
+}
